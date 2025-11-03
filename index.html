@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyline Design Services</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="img/logo.jpeg" alt="Skyline Design Services Logo" class="logo">
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <h2>Building Tomorrow’s Skylines Today</h2>
+    <p>We are a leading construction company delivering high-quality residential and commercial projects with precision and passion.</p>
+    <button onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">View Our Projects</button>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <i>🏗️</i>
+      <h3>Building Construction</h3>
+      <p>We design and build durable, modern, and sustainable structures.</p>
+    </div>
+    <div class="card">
+      <i>🏠</i>
+      <h3>Residential Design</h3>
+      <p>Custom home designs that blend beauty, comfort, and efficiency.</p>
+    </div>
+    <div class="card">
+      <i>🏢</i>
+      <h3>Project Management</h3>
+      <p>End-to-end construction supervision for timely delivery.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="gallery">
+  <h2>Our Projects</h2>
+  <div class="gallery-container">
+    <img src="img/img1.jpeg" alt="Modern House">
+    <img src="img/img2.jpeg" alt="Luxury Home">
+    <img src="img/img3.jpeg" alt="Duplex Design">
+    <img src="img/img4.jpeg" alt="Office Complex">
+    <img src="img/img6.jpeg" alt="Office Complex">
+    
+    
+  </div>
+</section>
+
+<div class="modal" id="imageModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <img id="modalImg" src="">
+    <button class="zoom-btn" id="zoomBtn">Zoom</button>
+  </div>
+</div>
+
+<section class="slider" id="sliderSection">
+  <div class="slides" id="slides">
+    <img src="img/img2.jpeg">
+    <img src="img/img3.jpeg">
+    <img src="img/img4.jpeg">
+    <img src="img/img6.jpeg">
+
+  </div>
+  <div class="controls">
+    <button class="control-btn" id="prev">&#10094;</button>
+    <button class="control-btn" id="next">&#10095;</button>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form" id="contactForm">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-socials">
+    <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://x.com" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+
+  <p>&copy; <span id="year"></span> Skyline Design Services. All Rights Reserved.</p>
+</footer>
+
+<!-- Load Font Awesome (REQUIRED for icons to show) -->
+<script src="https://kit.fontawesome.com/2d3e7f1c9b.js" crossorigin="anonymous"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
