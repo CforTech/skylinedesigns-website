@@ -68,6 +68,106 @@ footer{background:#002855;color:#fff;text-align:center;padding:20px;margin-top:5
 .footer-socials a:hover {
   color: #ffffff;
   transform: scale(1.25);
+
+
+}
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* This is the actual animated background image */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('img6.jpeg');  /* ✅ make sure this path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  animation: heroZoom 25s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Subtle moving gradient overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg,
+    rgba(0, 51, 102, 0.35),
+    rgba(255, 215, 0, 0.2),
+    rgba(0, 51, 102, 0.35)
+  );
+  background-size: 200% 200%;
+  animation: gradientMotion 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* Dark transparent overlay for text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+/* Text and button */
+.hero-content {
+  animation: fadeIn 2s ease-in;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 3;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #FFD700;
+  color: #003366;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: white;
+  color: #002147;
+}
+
+/* Animations */
+@keyframes heroZoom {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.1) translate(-10px, -10px); }
+  100% { transform: scale(1.2) translate(10px, 10px); }
+}
+
+@keyframes gradientMotion {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
