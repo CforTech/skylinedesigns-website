@@ -20,19 +20,27 @@
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <div class="nav-icons">
+    <!-- Search Icon -->
     <button id="searchBtn" class="icon-btn">
       🔍
     </button>
-    <button id="menuBtn" class="icon-btn">
-      ☰
-    </button>
+
+    <!-- Animated Hamburger Icon -->
+    <div class="hamburger" id="menuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 
-  <!-- Search bar (hidden by default) -->
-  <div class="search-bar" id="searchBar">
-    <input type="text" placeholder="Search here..." />
-  </div>
+  
+ <!-- Search bar -->
+<div class="search-bar" id="searchBar">
+  <input type="text" id="searchInput" placeholder="Search here..." />
+</div>
+
 </header>
 <section id="home" class="hero">
   <div class="hero-overlay">
@@ -122,23 +130,60 @@
 
 <!-- Font Awesome Public CDN (No Key Needed) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <script>
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   const searchBtn = document.getElementById('searchBtn');
   const searchBar = document.getElementById('searchBar');
+  const searchInput = document.getElementById('searchInput');
 
   // Toggle Menu
   menuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('show');
+    menuBtn.classList.toggle('active');
   });
 
-  // Toggle Search
+  // Toggle Search Bar
   searchBtn.addEventListener('click', () => {
-    searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+    searchBar.style.display =
+      searchBar.style.display === 'block' ? 'none' : 'block';
+    if (searchBar.style.display === 'block') {
+      searchInput.focus();
+    }
+  });
+
+  // Search Functionality
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const query = searchInput.value.toLowerCase().trim();
+
+      if (!query) return;
+
+      // Check headings and sections
+      const sections = document.querySelectorAll('section, h1, h2, h3, a');
+      let found = false;
+
+      sections.forEach((section) => {
+        if (section.textContent.toLowerCase().includes(query)) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          section.style.outline = '3px solid gold';
+          setTimeout(() => (section.style.outline = 'none'), 2000);
+          found = true;
+        }
+      });
+
+      if (!found) {
+        alert('No matching section found.');
+      }
+
+      // Hide search bar after use
+      searchBar.style.display = 'none';
+      searchInput.value = '';
+    }
   });
 </script>
-
 
 <script src="script.js"></script>
 </body>
